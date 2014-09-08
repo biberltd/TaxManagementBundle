@@ -18,7 +18,7 @@
  *
  */
 
-namespace BiberLtd\Core\Bundles\TaxManagementBundle\Controller;
+namespace BiberLtd\Bundle\TaxManagementBundle\Controller;
 use BiberLtd\Core\CoreController;
 
 

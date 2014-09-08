@@ -1,6 +1,6 @@
 <?php
 
-namespace BiberLtd\Core\Bundles\TaxManagementBundle\DependencyInjection;
+namespace BiberLtd\Bundle\TaxManagementBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace BiberLtd\Core\Bundles\TaxManagementBundle;
+namespace BiberLtd\Bundle\TaxManagementBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class BiberLtdCoreBundlesTaxManagementBundle extends Bundle
+class BiberLtdBundleTaxManagementBundle extends Bundle
 {
 
 }

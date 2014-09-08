@@ -15,7 +15,7 @@
  * @description Model / Entity class.
  *
  */
-namespace BiberLtd\Core\Bundles\TaxManagementBundle\Entity;
+namespace BiberLtd\Bundle\TaxManagementBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use BiberLtd\Core\CoreLocalizableEntity;
 
@@ -43,44 +43,44 @@ class TaxRate extends CoreLocalizableEntity
 
     /** 
      * @ORM\OneToMany(
-     *     targetEntity="BiberLtd\Core\Bundles\TaxManagementBundle\Entity\TaxRateLocalization",
+     *     targetEntity="BiberLtd\Bundle\TaxManagementBundle\Entity\TaxRateLocalization",
      *     mappedBy="tax_rate"
      * )
      */
     protected $localizations;
 
     /** 
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\LocationManagementBundle\Entity\Country")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\LocationManagementBundle\Entity\Country")
      * @ORM\JoinColumn(name="country", referencedColumnName="id", onDelete="CASCADE")
      */
     private $country;
 
     /** 
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\LocationManagementBundle\Entity\City")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\LocationManagementBundle\Entity\City")
      * @ORM\JoinColumn(name="city", referencedColumnName="id", onDelete="CASCADE")
      */
     private $city;
 
     /** 
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\LocationManagementBundle\Entity\State")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\LocationManagementBundle\Entity\State")
      * @ORM\JoinColumn(name="state", referencedColumnName="id", onDelete="CASCADE")
      */
     private $state;
 
     /** 
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\ProductManagementBundle\Entity\ProductCategory")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\ProductManagementBundle\Entity\ProductCategory")
      * @ORM\JoinColumn(name="product_category", referencedColumnName="id", onDelete="CASCADE")
      */
     private $product_category;
 
     /** 
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\SiteManagementBundle\Entity\Site")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\SiteManagementBundle\Entity\Site")
      * @ORM\JoinColumn(name="site", referencedColumnName="id", onDelete="CASCADE")
      */
     private $site;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\ProductManagementBundle\Entity\Product")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\ProductManagementBundle\Entity\Product")
      * @ORM\JoinColumn(name="product", referencedColumnName="id", onDelete="CASCADE")
      */
     private $product;

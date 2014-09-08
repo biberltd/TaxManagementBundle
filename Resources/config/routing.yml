@@ -1,5 +1,5 @@
 biberltd_core_tax_management_manage:
     pattern:  /tax
-    defaults: { _controller: BiberLtdCoreBundlesTaxManagementBundle:Test:test }
+    defaults: { _controller: BiberLtdBundleTaxManagementBundle:Test:test }
     pattern:  /brand
-    defaults: { _controller: BiberLtdCoreBundlesProductManagementBundle:Test:test }
+    defaults: { _controller: BiberLtdBundleProductManagementBundle:Test:test }

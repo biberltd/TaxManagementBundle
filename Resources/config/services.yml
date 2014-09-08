@@ -1,4 +1,4 @@
 services:
     taxmanagement.model:
-            class:        BiberLtd\Core\Bundles\TaxManagementBundle\Services\TaxManagementModel
+            class:        BiberLtd\Bundle\TaxManagementBundle\Services\TaxManagementModel
             arguments:    [@kernel, "default", "doctrine"]
