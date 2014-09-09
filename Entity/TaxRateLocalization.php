@@ -1,7 +1,7 @@
 <?php
 /**
  * @name        TaxRateLocalization
- * @package		BiberLtd\Core\TaxManagementBundle
+ * @package		BiberLtd\Bundle\CoreBundle\TaxManagementBundle
  *
  * @author		Murat Ünal
  *
@@ -14,9 +14,9 @@
  * @description Model / Entity class.
  *
  */
-namespace BiberLtd\Core\Bundles\TaxManagementBundle\Entity;
+namespace BiberLtd\Bundle\TaxManagementBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
-use BiberLtd\Core\CoreEntity;
+use BiberLtd\Bundle\CoreBundle\CoreEntity;
 /** 
  * @ORM\Entity
  * @ORM\Table(
@@ -42,7 +42,7 @@ class TaxRateLocalization extends CoreEntity
 
     /** 
      * @ORM\Id
-     * @ORM\ManyToOne(targetEntity="BiberLtd\Core\Bundles\MultiLanguageSupportBundle\Entity\Language")
+     * @ORM\ManyToOne(targetEntity="BiberLtd\Bundle\MultiLanguageSupportBundle\Entity\Language")
      * @ORM\JoinColumn(name="language", referencedColumnName="id", nullable=false, onDelete="CASCADE")
      */
     private $language;
@@ -50,7 +50,7 @@ class TaxRateLocalization extends CoreEntity
     /** 
      * @ORM\Id
      * @ORM\ManyToOne(
-     *     targetEntity="BiberLtd\Core\Bundles\TaxManagementBundle\Entity\TaxRate",
+     *     targetEntity="BiberLtd\Bundle\TaxManagementBundle\Entity\TaxRate",
      *     inversedBy="localizations"
      * )
      * @ORM\JoinColumn(name="tax_rate", referencedColumnName="id", nullable=false, onDelete="CASCADE")

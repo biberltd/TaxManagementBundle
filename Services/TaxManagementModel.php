@@ -20,24 +20,24 @@
  * @use         Biberltd\Core\Services
  * @use         Biberltd\Core\CoreModel
  * @use         Biberltd\Core\Services\Encryption
- * @use         BiberLtd\Core\Bundles\TaxManagementBundle\Entity
- * @use         BiberLtd\Core\Bundles\TaxManagementBundle\Services
+ * @use         BiberLtd\Bundle\TaxManagementBundle\Entity
+ * @use         BiberLtd\Bundle\TaxManagementBundle\Services
  *
  */
-namespace BiberLtd\Core\Bundles\TaxManagementBundle\Services;
+namespace BiberLtd\Bundle\TaxManagementBundle\Services;
 
 /** Extends CoreModel */
-use BiberLtd\Core\Bundles\LocationManagementBundle\Services\LocationManagementModel;
-use BiberLtd\Core\CoreModel;
+use BiberLtd\Bundle\LocationManagementBundle\Services\LocationManagementModel;
+use BiberLtd\Bundle\CoreBundle\CoreModel;
 /** Entities to be used */
-use BiberLtd\Core\Bundles\TaxManagementBundle\Entity as BundleEntity;
-use BiberLtd\Core\Bundles\ProductManagementBundle\Entity as ProductEntity;
+use BiberLtd\Bundle\TaxManagementBundle\Entity as BundleEntity;
+use BiberLtd\Bundle\ProductManagementBundle\Entity as ProductEntity;
 /** Helper Models */
-use BiberLtd\Core\Bundles\SiteManagementBundle\Services as SMMService;
-use BiberLtd\Core\Bundles\MultiLanguageSupportBundle\Services as MLSService;
+use BiberLtd\Bundle\SiteManagementBundle\Services as SMMService;
+use BiberLtd\Bundle\MultiLanguageSupportBundle\Services as MLSService;
 /** Core Service */
-use BiberLtd\Core\Services as CoreServices;
-use BiberLtd\Core\Exceptions as CoreExceptions;
+use BiberLtd\Bundle\CoreBundle\Services as CoreServices;
+use BiberLtd\Bundle\CoreBundle\Exceptions as CoreExceptions;
 
 class TaxManagementModel extends CoreModel {
 
