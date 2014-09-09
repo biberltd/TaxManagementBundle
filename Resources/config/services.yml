@@ -1,7 +1,4 @@
-parameters:
-#    biber_ltd_tax_management.example.class: BiberLtd\Bundle\TaxManagementBundle\Example
-
 services:
-#    biber_ltd_tax_management.example:
-#        class: %biber_ltd_tax_management.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    taxmanagement.model:
+            class:        BiberLtd\Bundle\TaxManagementBundle\Services\TaxManagementModel
+            arguments:    [@kernel, "default", "doctrine"]
