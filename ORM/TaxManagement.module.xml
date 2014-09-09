@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<skipper version="3.0.0.1104" mvc="Symfony2" orm="Doctrine2">
+  <module name="TaxManagementBundle" import-format="Doctrine2Php" import-path="../Entity" uuid="311692ed-0f51-4404-a25f-87e00e3508d2">
+    <entity name="TaxRate" description="Stores tax rate definitions." uuid="7e2bc115-0cc2-4fc3-b554-4d6b88aa50ca">
+      <field name="id" description="System given id." type="integer" size="10" required="true" unique="true" primary="true" auto-increment="true" uuid="cd01f8d2-9788-4bdc-a6a0-def640b01a08"/>
+      <field name="rate" description="Tax rate." type="decimal" size="3" required="true" uuid="549f0f69-f285-4337-a634-6cfe5328e317"/>
+      <field name="city" description="Tax rate for city." type="integer" size="10" uuid="b5ab2161-74dd-4d59-9afc-77ebdcae5a5c"/>
+      <field name="state" description="Tax rate for state." type="integer" size="10" uuid="ac23685b-e9fc-49a9-a2f6-a1aca49b1e72"/>
+      <field name="country" description="Tax rate for country." type="integer" size="10" uuid="32af72b1-3c34-4a6f-bafc-fa459076db9c"/>
+      <field name="product_category" description="Tax rate for product category." type="integer" size="10" uuid="863b22be-b147-44a2-8a5d-8bb95aca491f"/>
+      <field name="site" description="Site that tax rate belongs to." type="integer" size="10" uuid="0844277d-8796-4fb8-929d-c072780b2e16"/>
+      <field name="product" description="Product that tax ratei is valid for." type="integer" size="15" uuid="c4f5103b-edf1-40b2-9f2e-c72b5418b27d"/>
+      <index name="idx_u_tax_rate_id" unique="true">
+        <index-field name="id"/>
+      </index>
+      <orm-attributes>
+        <attribute name="options">
+          <attribute name="charset">utf8</attribute>
+          <attribute name="collate">utf8_turkish_ci</attribute>
+          <attribute name="engine">innodb</attribute>
+        </attribute>
+        <attribute name="table">tax_rate</attribute>
+        <attribute name="export-file-name">TaxRate.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="TaxRate" to="Country" caption="idx_f_tax_rate_country" inverse-alias="country" uuid="9bd33c97-5953-4e1e-a5f3-f2582ed79fea">
+      <association-field from="country" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <association from="TaxRate" to="City" caption="idx_f_tax_rate_city" inverse-alias="city" uuid="f4d0392d-4f7a-42d5-a01a-09f1b3941eb4">
+      <association-field from="city" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <association from="TaxRate" to="State" caption="idx_f_tax_rate_state" inverse-alias="state" uuid="331d5683-31ee-43f1-93f5-f94318deb49a">
+      <association-field from="state" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <association from="TaxRate" to="ProductCategory" caption="idx_f_tax_rate_product_category" inverse-alias="product_category" uuid="d716905e-c8f3-4fd4-b590-a634e8fd4a53">
+      <association-field from="product_category" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <association from="TaxRate" to="Site" caption="idx_f_tax_rate_site" inverse-alias="site" uuid="94e4f81f-9d8d-4f9d-8cbc-13c51ba2a0bb">
+      <association-field from="site" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <association from="TaxRate" to="Product" caption="idx_f_tax_rate_product" inverse-alias="product" uuid="78098fa7-3391-41a7-95e6-6bd0fe18a694">
+      <association-field from="product" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <entity name="TaxRateLocalization" description="Holds localized values for tax rates." uuid="0d110066-0420-4057-8fef-e2ddc3e5f26a">
+      <field name="tax_rate" description="Localized tax rate." type="integer" size="10" required="true" primary="true" uuid="748e73f2-3a75-40cd-b4a8-fd1aa6e40929"/>
+      <field name="language" description="Localization language." type="integer" size="5" required="true" primary="true" uuid="a4fbcbfa-56bb-42cf-97a7-ed8e39eeae50"/>
+      <field name="name" description="Localized name." type="string" size="155" required="true" uuid="95cd0eb7-c76b-49a7-a24a-50ed70a3b5c1"/>
+      <field name="url_key" description="Localized url key." type="string" size="255" required="true" uuid="d8fa8644-3509-420b-acdc-653608b0e6c4"/>
+      <index name="idx_u_tax_rate_localization" unique="true">
+        <index-field name="tax_rate"/>
+      </index>
+      <index name="tax_rate_localization_url_key" unique="true">
+        <index-field name="language"/>
+        <index-field name="url_key"/>
+      </index>
+      <orm-attributes>
+        <attribute name="options">
+          <attribute name="charset">utf8</attribute>
+          <attribute name="collate">utf8_turkish_ci</attribute>
+          <attribute name="engine">innodb</attribute>
+        </attribute>
+        <attribute name="table">tax_rate_localization</attribute>
+        <attribute name="export-file-name">TaxRateLocalization.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="TaxRateLocalization" to="Language" caption="idx_f_tax_rate_localization_language" inverse-alias="language" uuid="839556dd-2fbf-4330-808c-85fb836a0043">
+      <association-field from="language" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <association from="TaxRateLocalization" to="TaxRate" caption="tax_rate_localization_tax_rate" owner-alias="localizations" inverse-alias="tax_rate" uuid="62d6a864-7bc0-4734-9d80-635be3b8608d">
+      <association-field from="tax_rate" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+      </orm-attributes>
+    </association>
+    <comment caption="TaxManagementBundle Pricing" description="tax_rate: 265 TL&#10;tax_rate_localization: 130 TL&#10;&#10;toplam: 395 TL" uuid="cec305f9-92ea-4a99-a050-6078dbd223cb"/>
+    <orm-attributes>
+      <attribute name="namespace">BiberLtd\Core\Bundles\TaxManagementBundle\Entity</attribute>
+      <attribute name="filename-format">entity-name-only</attribute>
+      <attribute name="file-suffix">without-suffix</attribute>
+    </orm-attributes>
+  </module>
+  <visual-data>
+    <entity uuid="0d110066-0420-4057-8fef-e2ddc3e5f26a" bg-color="4294967295" hdr-color="4292006610" position-x="100" position-y="200" size-x="0" size-x2="112" size-y="0" size-y2="73"/>
+    <module uuid="311692ed-0f51-4404-a25f-87e00e3508d2" bg-color="4287195726" size-x="0" size-x2="600" size-y="0" size-y2="300"/>
+    <entity uuid="7e2bc115-0cc2-4fc3-b554-4d6b88aa50ca" bg-color="4294967295" hdr-color="4292006610" position-x="299" position-y="100" size-x="0" size-x2="151" size-y="0" size-y2="101"/>
+    <comment uuid="cec305f9-92ea-4a99-a050-6078dbd223cb" bg-color="4294948765" position-x="2" position-y="17" size-x="0" size-x2="148" size-y="0" size-y2="68" txt-color="4278190080"/>
+  </visual-data>
+</skipper>
